@@ -65,7 +65,7 @@ const ManageContacts = () => {
       <Grid container spacing={3}>
         {/* start of first row */}
         {/* grid item for buttons */}
-        <Grid item xs={4}>
+        <Grid item xs={12}>
           <Box>
             <Button
               sx={{ margin: 1 }}
@@ -92,9 +92,8 @@ const ManageContacts = () => {
           </Box>
         </Grid>
         {/* grid for occupying extra space */}
-        <Grid item xs={8}></Grid>
+        {/* <Grid item xs={8}></Grid> */}
         {/* end of first row */}
-        {/* <!------  xxxx--------> */}
         {/* start of second row */}
         {/* serial number */}
         <Grid item xs={6}>
