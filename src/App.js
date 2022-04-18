@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import ParentContact from "./components/ParentContact";
+import ParentContact from "./modules/Contacts/ParentContact";
 
 function App() {
   return <ParentContact />;

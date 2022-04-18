@@ -9,6 +9,7 @@ import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
 import ManageContacts from "./ManageContacts";
 import ViewContacts from "./ViewContacts";
+import { viewAllContacts } from "../API Models/contact";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -46,8 +47,10 @@ function a11yProps(index) {
 // actual parent component starts from here
 const ParentContact = () => {
   const theme = useTheme();
-  // initial state of the value
+  // initial state for the tab value
   const [value, setValue] = useState(0);
+
+  const [sentContact, setSentContact] = useState(null);
 
   // this function changes the tab by setting new value to the state
   const handleChange = (event, newValue) => {
@@ -56,6 +59,7 @@ const ParentContact = () => {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
+
   return (
     <Grid container>
       <Box sx={{ width: "100%" }}>
@@ -87,10 +91,13 @@ const ParentContact = () => {
           onChangeIndex={handleChangeIndex}
         >
           <TabPanel value={value} index={0}>
-            <ManageContacts />
+            <ManageContacts
+              setSentContact={setSentContact}
+              sentContact={sentContact}
+            />
           </TabPanel>
           <TabPanel value={value} index={1}>
-            <ViewContacts />
+            <ViewContacts setValue={setValue} setSentContact={setSentContact} />
           </TabPanel>
         </SwipeableViews>
       </Box>
